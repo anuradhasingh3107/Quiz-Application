@@ -1,10 +1,16 @@
 export function sendRequest(url, options, callback) {
-    if(url) {
+    if (url) {
         fetch(url, options)
-        .then(res => {
-            if(callback) {
-                callback(res);
-            }
-        })
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(json => {
+                if (json) {
+                    if (callback) {
+                        callback(json);
+                    }
+                }
+            });
     }
 }

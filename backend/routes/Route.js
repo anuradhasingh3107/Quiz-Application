@@ -12,4 +12,10 @@ router.post('/signup', function(req, res, next) {
     // Handle login
 });
 
+router.post('/admin', function(req, res, next) {
+    console.log("List Users route");
+    // Handle login
+});
+
+
 module.export=router;

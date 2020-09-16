@@ -7,6 +7,7 @@ import UserInfo from './UserInfo';
 import "bootstrap/dist/css/bootstrap.min.css";
 import QuestionBoxInterface from './QuestionBoxInterface';
 import SignUp from './SignUp';
+import admin from './Admin';
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path="/user" component={UserInfo} />
             <Route exact path="/QuestionBox" component={QuestionBoxInterface} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/admin" component={admin} />
           </div>
         </Router>
       //</Provider>

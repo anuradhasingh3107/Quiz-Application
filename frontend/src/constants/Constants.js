@@ -18,5 +18,9 @@ export const signupState = {
     id: "",
 };
 
+export const listState = {
+    users: []
+};
+
 
 // role : Student, Teacher

@@ -72,6 +72,14 @@ router.route('/user').get(function(req, res) {
     });
 });
 
+router.route('/admin').get(function(req, res) {
+    console.log("List All users");
+    User.find({}, function(err, users) {
+        res.json(users);
+    });
+});
+
+
 router.route('/user/:id').delete(function(req, res) {
     console.log("Delete Call");
     User.remove({_id:req.params.id},(error,result) => {
