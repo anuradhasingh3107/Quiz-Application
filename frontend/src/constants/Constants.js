@@ -1,3 +1,9 @@
+export const INITIAL_STATE = {
+    userInfoState: {
+        role: ""
+    }
+};
+
 export const loginState = {
     userName: "",
     passWord: "",
@@ -7,20 +13,22 @@ export const loginState = {
 
 export const userState = {
     quizPlayed: "",
-    Score:"20",
-    userName:"Akash",
-    role:""
+    Score: "20",
+    userName: "Akash",
+    role: ""
 };
 
 export const signupState = {
     firstName: "",
     lastName: "",
-    id: "",
+    id: ""
 };
 
 export const listState = {
     users: []
 };
+
+export const SET_USER_DATA = "SET_USER_DATA";
 
 
 // role : Student, Teacher

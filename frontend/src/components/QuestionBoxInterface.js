@@ -34,10 +34,14 @@ class QuestionBoxInterface extends Component {
         this.getQuestions();
     }
 
+    routetoQuestionBoxInterface(){
+        this.history.push("/QuestionBox");
+    }
+
 
     render() {
         return( 
-            <div className="container">
+            <div style={{marginTop: 10}}>
                 <div className="title">Quiz 1</div>
                     {this.state.questionBank.length>0 && 
                     this.state.responses < 5 &&
@@ -53,7 +57,9 @@ class QuestionBoxInterface extends Component {
                                 );
                             }
                         )}
-                {this.state.responses==5 ? <h2>{this.state.score}</h2> : null}
+                {this.state.responses==5 ? <h2>Your score for this Quiz is :{this.state.score} <br/>
+                <button className="btn btn-primary" type="button" onClick={this.routetoQuestionBoxInterface}> Try More! </button>
+                </h2> : null}
             </div>
         );
     }

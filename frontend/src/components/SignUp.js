@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import {signupState} from '../constants/Constants';
-import {sendRequest} from '../utilities/RequestUtils';
+import { signupState } from '../constants/Constants';
+import { sendRequest } from '../utilities/RequestUtils';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class SignUp extends Component {
-    
+
     //constructor
     constructor(props) {
         super(props);
@@ -20,14 +20,14 @@ export default class SignUp extends Component {
         console.log(propertyName);
         if (propertyName === 'userName') {
             this.state.userName = event.target.value;
-        } 
+        }
         else if (propertyName === 'userId') {
             this.state.userId = event.target.value;
         }
         else {
             this.state.passWord = event.target.value;
         }
-        if(this.state.userName !== "" && this.state.passWord !== "") {
+        if (this.state.userName !== "" && this.state.passWord !== "") {
             this.state.loginDisability = false;
         }
         this.setState(this.state);
@@ -37,21 +37,21 @@ export default class SignUp extends Component {
         e.preventDefault();
         let url = '/Quiz/v1/signup/';
         let reqData = {
-          userName: this.state.userName,
-          passWord: this.state.passWord,
-          userId: this.state.userId,
-          
+            userName: this.state.userName,
+            passWord: this.state.passWord,
+            userId: this.state.userId,
+
         };
         let reqString = JSON.stringify(reqData);
         let options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: reqString
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: reqString
         };
         sendRequest(url, options, this.processResponse);
-      }
+    }
 
     processResponse(res) {
         if (res.status === 200) {
@@ -60,14 +60,14 @@ export default class SignUp extends Component {
         } else {
             //this.setState(this.resetState());
         }
-        
+
     }
 
-    routetologin(event){
+    routetologin(event) {
         this.props.history.push("/");
-      }
-  
-    
+    }
+
+
     render() {
         return (
             <form onSubmit={this.register}>
@@ -75,23 +75,23 @@ export default class SignUp extends Component {
 
                 <div className="form-group">
                     <label>First name</label>
-                    <input type="text" className="form-control" 
-                    placeholder="User name" id="userName" type='text' 
-                    value={this.state.userName} onChange={ this.handleChangeFor('userName') } />
+                    <input type="text" className="form-control"
+                        placeholder="User name" id="userName" type='text'
+                        value={this.state.userName} onChange={this.handleChangeFor('userName')} />
                 </div>
 
                 <div className="form-group">
                     <label>User ID</label>
-                    <input type="text" className="form-control" 
-                    placeholder="User Id" id="userId" type='text' 
-                    value={this.state.userId} onChange={ this.handleChangeFor('userId') } />
+                    <input type="text" className="form-control"
+                        placeholder="User Id" id="userId" type='text'
+                        value={this.state.userId} onChange={this.handleChangeFor('userId')} />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" 
-                    placeholder="Enter password" id="passWord" type='text' 
-                    value={this.state.passWord} onChange={ this.handleChangeFor('passWord') } />
+                    <input type="password" className="form-control"
+                        placeholder="Enter password" id="passWord" type='text'
+                        value={this.state.passWord} onChange={this.handleChangeFor('passWord')} />
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>

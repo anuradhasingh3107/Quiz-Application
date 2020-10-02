@@ -15,6 +15,16 @@ const UserSchema = new Schema({
     PassWord: {
         type: String,
         required: true
+    },
+
+    Role: {
+        type: String,
+        default: "NA"
+    },
+
+    GroupName: {
+        type: String,
+        default: ""
     }
 });
 
